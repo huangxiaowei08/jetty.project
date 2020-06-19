@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -75,6 +76,7 @@ public class AttributesMap implements Attributes, Dumpable
     @Override
     public void setAttribute(String name, Object attribute)
     {
+        Objects.requireNonNull(name, "name must not be null");
         if (attribute == null)
             removeAttribute(name);
         else
